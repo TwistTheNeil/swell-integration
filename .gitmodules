@@ -1,0 +1,3 @@
+[submodule "swell-animations-algorithm"]
+	path = swell-animations-algorithm
+	url = git@github.com:TwistTheNeil/swell-animations-algorithm.git
