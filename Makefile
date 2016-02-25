@@ -1,4 +1,4 @@
-windows: hello.c
+win: hello.c
 	/dev/shm/mxe/usr/bin/i686-w64-mingw32.static-gcc -shared hello.c -o libhello.dll
 
 linux: hello.c
