@@ -1,0 +1,2 @@
+create: hello.c
+	gcc -shared -o libhello.so -fPIC hello.c
