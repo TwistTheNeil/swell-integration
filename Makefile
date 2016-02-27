@@ -5,7 +5,7 @@ loader: loader.cpp
 	g++ -Wall -g -o loader.o -c loader.cpp
 	g++ -g -o loader loader.o -ldl
 
-test: loader
+test: linux loader
 	LD_LIBRARY_PATH="." ./loader
 
 mac: libhello.cpp libhello.h
