@@ -9,7 +9,7 @@ test: loader
 	LD_LIBRARY_PATH="." ./loader
 
 mac: libhello.cpp libhello.h
-	/dev/shm/osxcross/target/bin/o64-clang -dynamiclib -std=gnu99 libhello.cpp -current_version 1.0 -compatibility_version 1.0 -fvisibility=hidden -o libhello.bundle
+	/dev/shm/osxcross/target/bin/o64-clang++ -dynamiclib libhello.cpp -current_version 1.0 -compatibility_version 1.0 -fvisibility=hidden -o libhello.bundle
 
 win: libhello.cpp libhello.h
 	/dev/shm/mxe/usr/bin/i686-w64-mingw32.static-gcc -shared libhello.cpp -o libhello.dll
