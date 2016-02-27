@@ -1,6 +1,7 @@
-/* libhello.h - demonstrate library use. */
-
-
+#ifdef __cplusplus
 extern "C" {
+#endif
 	void hello(void);
+#ifdef __cplusplus
 }
+#endif
