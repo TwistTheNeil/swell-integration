@@ -2,8 +2,9 @@ linux: libhello.cpp libhello.h
 	g++ -shared -o libhello.so -fPIC libhello.cpp
 
 loader: loader.cpp
-	g++ -Wall -g -o loader.o -c loader.cpp
-	g++ -g -o loader loader.o -ldl
+	#g++ -Wall -g -o loader.o -c loader.cpp -c modeldata.pb.cc
+	#g++ -g -o loader loader.o -ldl
+	g++ -Wall -g -o loader loader.cpp -ldl `pkg-config --cflags --libs protobuf` #-Wl,--no-as-needed -ldl
 
 test: linux loader
 	LD_LIBRARY_PATH="." ./loader

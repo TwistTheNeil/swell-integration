@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+//#include "modeldata.pb.h"
 
-typedef void (*simple_demo_function)(char*, int, unsigned int&);
+typedef void (*simple_demo_function)(char* a, int size, unsigned int& responseSize);
 
 int main(void) {
 	const char *error;
@@ -11,18 +12,22 @@ int main(void) {
 	simple_demo_function demo_function;
 
 	/* Load dynamically loaded library */
+	printf("what1\n");
 	module = dlopen("TestDLL.so", RTLD_LAZY);
+	printf("what2\n");
 	if (!module) {
 		fprintf(stderr, "Couldn't open libhello.so: %s\n",
 		dlerror());
 		exit(1);
 	}
+	printf("what3\n");
 
 	/* Get symbol */
 	dlerror();
-	demo_function = (simple_demo_function)dlsym(module, "setDataNegative");
+	//demo_function = (simple_demo_function)dlsym(module, "setDataNegative");
+	demo_function = (simple_demo_function)dlsym(module, "_Z15setDataNegativePciRj");
 	if ((error = dlerror())) {
-		fprintf(stderr, "Couldn't find hello: %s\n", error);
+		fprintf(stderr, "Couldn't dlsym: %s\n", error);
 		exit(1);
 	}
 

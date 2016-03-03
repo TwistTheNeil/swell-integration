@@ -6,9 +6,7 @@
 
 using namespace swellanimations;
 
-extern "C"
-{
-	void iterate(swellanimations::Node* node) {
+	void iterate(Node* node) {
 		//node->set_data(node->data() / -2);
 		//if (node->has_childnode()) {
 		//	iterate(node->mutable_childnode());
@@ -17,9 +15,9 @@ extern "C"
 
 	void* setDataNegative(char* a, int size, unsigned int& responseSize) {
 		printf("test1\n");
-//		swellanimations::Node* node = new swellanimations::Node();
+		Node* node = new Node();
 		printf("test2\n");
-		Node *node = (Node*)calloc(1, sizeof(Node));
+//		Node *node = (Node*)calloc(1, sizeof(Node));
 		printf("what\n");
 		printf("%s--\n", a);
 		node->ParseFromArray(a, strlen(a));
@@ -43,6 +41,3 @@ extern "C"
 		setDataNegative(s, 8, a);
 		return 0;
 	}
-
-
-}
