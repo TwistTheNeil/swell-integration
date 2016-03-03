@@ -24,8 +24,8 @@ int main(void) {
 
 	/* Get symbol */
 	dlerror();
-	//demo_function = (simple_demo_function)dlsym(module, "setDataNegative");
-	demo_function = (simple_demo_function)dlsym(module, "_Z15setDataNegativePciRj");
+	demo_function = (simple_demo_function)dlsym(module, "setDataNegative");
+	//demo_function = (simple_demo_function)dlsym(module, "_Z15setDataNegativePciRj");
 	if ((error = dlerror())) {
 		fprintf(stderr, "Couldn't dlsym: %s\n", error);
 		exit(1);

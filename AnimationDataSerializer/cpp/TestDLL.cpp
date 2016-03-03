@@ -6,6 +6,7 @@
 
 using namespace swellanimations;
 
+extern "C" {
 	void iterate(Node* node) {
 		//node->set_data(node->data() / -2);
 		//if (node->has_childnode()) {
@@ -41,3 +42,4 @@ using namespace swellanimations;
 		setDataNegative(s, 8, a);
 		return 0;
 	}
+}
