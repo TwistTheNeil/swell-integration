@@ -2,3 +2,5 @@
 *.bundle
 *.dll
 *.o
+swell-integration/Debug/
+swell-integration/

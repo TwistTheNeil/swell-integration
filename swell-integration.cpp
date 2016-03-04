@@ -19,12 +19,14 @@ extern "C" {
 			iterate(node->mutable_children(0));
 		}
 	}
-
+	#ifdef _WIN32 
+	__declspec (dllexport) 
+	#endif
 	void* setDataNegative(char* a, int size, unsigned int& responseSize) {
 		printf("test1\n");
 		Node* node = new Node();
 		printf("test2\n");
-//		Node *node = (Node*)calloc(1, sizeof(Node));
+		//		Node *node = (Node*)calloc(1, sizeof(Node));
 		printf("what\n");
 		printf("%s--\n", a);
 		node->ParseFromArray(a, strlen(a));
