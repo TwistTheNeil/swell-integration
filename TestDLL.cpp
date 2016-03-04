@@ -7,10 +7,15 @@
 using namespace swellanimations;
 
 	void iterate(Node* node) {
-		//node->set_data(node->data() / -2);
-		//if (node->has_childnode()) {
-		//	iterate(node->mutable_childnode());
-		//}
+		node->set_positionx(node->positionx() / -2);
+		node->set_positiony(node->positiony() / -2);
+		node->set_positionz(node->positionz() / -2);
+		node->set_rotationx(node->rotationx() / -2);
+		node->set_rotationy(node->rotationy() / -2);
+		node->set_rotationz(node->rotationz() / -2);
+		if (node->children_size() != 0) {
+			iterate(node->mutable_children(0));
+		}
 	}
 
 	void* setDataNegative(char* a, int size, unsigned int& responseSize) {
