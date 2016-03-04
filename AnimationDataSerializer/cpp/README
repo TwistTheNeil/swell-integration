@@ -1,2 +1,0 @@
-g++ -g -shared -o TestDLL.so -fPIC AnimationDataSerializer/modeldata.pb.cc TestDLL.cpp `pkg-config --cflags --libs protobuf` -Wl,--no-as-needed -ldl
-make loader
