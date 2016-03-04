@@ -7,3 +7,8 @@ If no errors, segfaults, or thermonuclear wars, proceed to
 cp TestDLL.so /path/to/swell-animations-frontend/PathfinderPrototype/Assets/Plugins/
 
 Run Unity and test
+
+--------
+
+Create protobuf stuff on swell-frontend-integration
+protoc -I ./ --cpp_out=cpp/ modeldata.proto
