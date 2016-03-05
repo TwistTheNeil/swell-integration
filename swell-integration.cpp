@@ -8,27 +8,27 @@ using namespace swellanimations;
 
 extern "C" {
 
-	void iterate(Node* node) {
-		node->set_positionx(node->positionx() / -2);
-		node->set_positiony(node->positiony() / -2);
-		node->set_positionz(node->positionz() / -2);
-		node->set_rotationx(node->rotationx() / -2);
-		node->set_rotationy(node->rotationy() / -2);
-		node->set_rotationz(node->rotationz() / -2);
-		if (node->children_size() != 0) {
-			iterate(node->mutable_children(0));
+	Animation* generateTestData(ModelData* modelData) {
+		Node model = modelData->model();
+		Animation* animation = new Animation();
+		for (int x = 0; x < modelData->controlpoints_size(); x++) {
+			Node* node = animation->add_frames();
+			node->CopyFrom(model);
+			node->set_allocated_position(modelData->mutable_controlpoints(x));
 		}
+		return animation;
 	}
+
 	#ifdef _WIN32 
 	__declspec (dllexport) 
 	#endif
-	void* setDataNegative(char* a, int size, unsigned int& responseSize) {
-		Node* node = new Node();
-		node->ParseFromArray(a, size);
-		iterate(node);
-		responseSize = node->ByteSize();
+	void* generateAnimation(char* a, int size, unsigned int& responseSize) {
+		ModelData* modelData = new ModelData();
+		modelData->ParseFromArray(a, size);
+		Animation* animation = generateTestData(modelData);
+		responseSize = animation->ByteSize();
 		void* response = malloc(responseSize);
-		node->SerializeToArray(response, responseSize);
+		animation->SerializeToArray(response, responseSize);
 		return response;
 	}
 }
