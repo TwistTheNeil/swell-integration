@@ -25,4 +25,5 @@ To build on a mac:
 6) cd to swell-integration repo
 7) make maclocal
 
+TIP FOR MAC USERS:  Close Unity before you replace the bundle file!!!!
 
