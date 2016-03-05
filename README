@@ -12,3 +12,17 @@ Run Unity and test
 
 Create protobuf stuff on swell-frontend-integration
 protoc -I ./ --cpp_out=cpp/ modeldata.proto
+
+
+
+
+To build on a mac:
+1) go to https://developers.google.com/protocol-buffers/docs/downloads
+2) uncompress source and cd to that directory
+3) make
+4) make check
+5) make install
+6) cd to swell-integration repo
+7) make maclocal
+
+

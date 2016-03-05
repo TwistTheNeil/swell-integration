@@ -17,5 +17,8 @@ mac: libhello.cpp libhello.h
 win: libhello.cpp libhello.h
 	x86_64-w64-mingw32-g++ -shared libhello.cpp -o libhello.dll
 
+maclocal: swell-integration.cpp
+	g++ -dynamiclib  -arch x86_64 AnimationDataSerializer/modeldata.pb.cc swell-integration.cpp -lprotobuf -current_version 1.0 -compatibility_version 1.0 -fvisibility=hidden -o swell-integration.bundle
+
 clean:
 	@rm -f *.exe *.o *.dll *.bundle *.so* *.dylib loader
