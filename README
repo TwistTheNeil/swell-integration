@@ -13,11 +13,8 @@ Run Unity and test
 Create protobuf stuff on swell-frontend-integration
 protoc -I ./ --cpp_out=cpp/ modeldata.proto
 
-
-
-
 To build on a mac:
-1) go to https://developers.google.com/protocol-buffers/docs/downloads
+1) go to https://developers.google.com/protocol-buffers/docs/downloads and download the Protocol Buffers source code
 2) uncompress source and cd to that directory
 3) make
 4) make check
@@ -27,3 +24,8 @@ To build on a mac:
 
 TIP FOR MAC USERS:  Close Unity before you replace the bundle file!!!!
 
+To build on Windows:
+1) Install Visual Studio 2013 Community Edition (Comes with Unity)
+2) Download Visual Studio project files from Basecamp: https://public.3.basecamp.com/p/Aj5CrGU3PuincreBTQttskqg
+3) Copy the FOLDER swell-integration into the swell-integration repo (the entire folder, not it's contents)
+4) Open in Visual Studio 2013
