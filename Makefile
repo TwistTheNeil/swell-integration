@@ -5,7 +5,7 @@ loader: loader.cpp
 	g++ -Wall -g -o loader loader.cpp -ldl `pkg-config --cflags --libs protobuf` #-Wl,--no-as-needed -ldl
 
 testobj: swell-integration.cpp
-	g++ -g -shared -o swell-integration.so -fPIC AnimationDataSerializer/modeldata.pb.cc swell-integration.cpp `pkg-config --cflags --libs protobuf` -Wl,--no-as-needed -ldl
+	g++ -g -shared -o swell-integration.so -fPIC swell-animations-algorithm/AnimationDataSerializer/modeldata.pb.cc swell-integration.cpp `pkg-config --cflags --libs protobuf` -Wl,--no-as-needed -ldl
 
 test: linux loader
 	LD_LIBRARY_PATH="." ./loader
