@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string.h>
 #include "swell-integration.h"
+#include "animate/AnimationGeneration.cpp"
 #include "AnimationDataSerializer/modeldata.pb.h"
 
 using namespace swellanimations;
@@ -21,7 +22,8 @@ Animation* generateTestData(ModelData* modelData) {
 void* generateAnimation(char* a, int size, unsigned int& responseSize) {
     ModelData* modelData = new ModelData();
     modelData->ParseFromArray(a, size);
-    Animation* animation = generateTestData(modelData);
+    //Animation* animation = generateTestData(modelData);
+    Animation* animation = getFrames(modelData);
     responseSize = animation->ByteSize();
     void* response = malloc(responseSize);
     animation->SerializeToArray(response, responseSize);
