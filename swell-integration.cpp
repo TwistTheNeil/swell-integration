@@ -22,8 +22,8 @@ Animation* generateTestData(ModelData* modelData) {
 void* generateAnimation(char* a, int size, unsigned int& responseSize) {
     ModelData* modelData = new ModelData();
     modelData->ParseFromArray(a, size);
-    //Animation* animation = generateTestData(modelData);
-    Animation* animation = getFrames(modelData);
+    Animation* animation = generateTestData(modelData);
+    //Animation* animation = getFrames(modelData);
     responseSize = animation->ByteSize();
     void* response = malloc(responseSize);
     animation->SerializeToArray(response, responseSize);
