@@ -3,8 +3,8 @@
 #include <sstream>
 #include <string.h>
 #include "swell-integration.h"
-#include "swell-animations-algorithm/animate/AnimationGeneration.cpp"
-#include "swell-animations-algorithm/AnimationDataSerializer/modeldata.pb.h"
+#include "swell-animations-algorithm/src/AnimationGeneration.cpp"
+#include "swell-animations-algorithm/include/modeldata.pb.h"
 
 using namespace swellanimations;
 
